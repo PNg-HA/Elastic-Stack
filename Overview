@@ -1,1 +1,4 @@
-
+Elastic Stack, or used to be called ELK Stack, is a stack that comprises of three popular projects: 
+  - Elasticsearch
+  - Logstash
+  - Kibana
