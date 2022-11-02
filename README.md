@@ -33,8 +33,10 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 * [Docker Compose][compose-install] version **1.26.0** or newer (including [Compose V2][compose-v2])
 * More than **6 GB** of RAM (because the host consumes lots of memory when runs ELK multi nodes)
 ### Setup steps
-> **Summary**
-> This document will show how to use Docker and Docker Compose to install 3 Elasticsearch nodes in 1 cluser, Kibana to visual and management them, and how to backup and restore the database.
+> **Summary:**
+> This document will show how to use Docker and Docker Compose to install 3 
+> Elasticsearch nodes in 1 cluser, Kibana to visual and management them, and how to backup 
+> and restore the database.
 
 
 [elk-stack]: https://www.elastic.co/what-is/elk-stack
