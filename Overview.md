@@ -2,17 +2,10 @@ Elastic Stack, also known as ELK Stack, is a stack that comprises of three popul
 
 * Elasticsearch
 * Logstash
-- Kibana
+* Kibana
  
 and other components such as:
 - Beat
 - APM
 
-- George Washington
-- John Adams
-- Thomas Jefferson
 Elastic Stack is used to take data from any source then search by Elasticsearch, analyze and visualize by Kibana.
-
-
-100. First list item
-     - First nested list item
