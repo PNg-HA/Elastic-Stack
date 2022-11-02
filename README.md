@@ -29,4 +29,47 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 
 ## Setup
 ### Host requirements
+* [Docker Engine][docker-install] version **18.06.0** or newer
+* [Docker Compose][compose-install] version **1.26.0** or newer (including [Compose V2][compose-v2])
+* More than **6 GB** of RAM (because the host consumes lots of memory when runs ELK multi nodes)
 ### Setup steps
+
+
+[elk-stack]: https://www.elastic.co/what-is/elk-stack
+[xpack]: https://www.elastic.co/what-is/open-x-pack
+[paid-features]: https://www.elastic.co/subscriptions
+[es-security]: https://www.elastic.co/guide/en/elasticsearch/reference/current/security-settings.html
+[trial-license]: https://www.elastic.co/guide/en/elasticsearch/reference/current/license-settings.html
+[license-mngmt]: https://www.elastic.co/guide/en/kibana/current/managing-licenses.html
+[license-apis]: https://www.elastic.co/guide/en/elasticsearch/reference/current/licensing-apis.html
+
+[elastdocker]: https://github.com/sherifabdlnaby/elastdocker
+
+[docker-install]: https://docs.docker.com/get-docker/
+[compose-install]: https://docs.docker.com/compose/install/
+[compose-v2]: https://docs.docker.com/compose/cli-command/
+[linux-postinstall]: https://docs.docker.com/engine/install/linux-postinstall/
+
+[bootstrap-checks]: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+[es-sys-config]: https://www.elastic.co/guide/en/elasticsearch/reference/current/system-config.html
+[es-heap]: https://www.elastic.co/guide/en/elasticsearch/reference/current/important-settings.html#heap-size-settings
+
+[win-filesharing]: https://docs.docker.com/desktop/windows/#file-sharing
+[mac-filesharing]: https://docs.docker.com/desktop/mac/#file-sharing
+
+[builtin-users]: https://www.elastic.co/guide/en/elasticsearch/reference/current/built-in-users.html
+[ls-monitoring]: https://www.elastic.co/guide/en/logstash/current/monitoring-with-metricbeat.html
+[sec-cluster]: https://www.elastic.co/guide/en/elasticsearch/reference/current/secure-cluster.html
+
+[connect-kibana]: https://www.elastic.co/guide/en/kibana/current/connect-to-elasticsearch.html
+[index-pattern]: https://www.elastic.co/guide/en/kibana/current/index-patterns.html
+
+[config-es]: ./elasticsearch/config/elasticsearch.yml
+[config-kbn]: ./kibana/config/kibana.yml
+[config-ls]: ./logstash/config/logstash.yml
+
+[es-docker]: https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
+[kbn-docker]: https://www.elastic.co/guide/en/kibana/current/docker.html
+[ls-docker]: https://www.elastic.co/guide/en/logstash/current/docker-config.html
+
+[upgrade]: https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-upgrade.html
