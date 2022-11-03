@@ -177,7 +177,7 @@ Do these above steps for **3** elasticsearch node and restart them. Then go to t
   
   ![image](https://user-images.githubusercontent.com/93396414/199721855-d94ba8f9-9c4d-467a-893b-6ace4f3e4d75.png)
 
-    In the picture, there are many snapshots. Choose one.
+   In the picture, there are many snapshots. Choose one.
   
   2. A pop-up shows up.
 
