@@ -22,7 +22,8 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 2. [Setup](#set-up)
 	* [Host requirements](#Host-requirements)
 	* [Setup steps](#Setup-steps)
-	* [Backup](#Backup]
+3. [Backup and restore](#Backup-and-restore]
+	* [Backup](#Backup)
 	* [Restore](#Restore]
 
 ## Components
@@ -78,6 +79,30 @@ When all 3 nodes are healthy, access the Kibana web UI by opening http://<IP-add
 
 ![This is an image](http://soccertoday.com/wp-content/uploads/2013/12/SDFA_1.jpg )
 
+##Backup and restore
+###Backup
+First: access the container with root:
+
+	$docker exec -u 0 -it <esearch container id> /bin/bash
+	$apt-get update
+Install the nano text editor:
+	
+	$apt-get install nano
+	
+Ctrl – D to quit the container and get access to it again with user elasticsearch:
+
+	docker exec -it <esearch container id> /bin/bash
+
+Create a backup directory:
+	
+	mkdir backup_repo
+
+Config the `elasticsearch.yml` file to create a path to the backup directory:
+
+	nano config/elasticsearch.yml
+	path.repo: /usr/share/elasticsearch/backup_repo
+
+###Restore:
 
 
 
