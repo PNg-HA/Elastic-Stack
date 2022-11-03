@@ -45,7 +45,12 @@ In a Ubuntu server, create a directory and move into it:
     $ mkdir docker-ELK && cd $_
     
 	
-Make a `docker-compose.yml`file with the contents copied from [`docker-compose.yml`](docker-compose.yml) (this file is at first referenced from the [docker-compose file][docker-compose-file] of [elastic.co], however I have edited it to fix bugs when build the docker compose up. What I have edited is setting up JVM heap size `- ES_JAVA_OPTS=-Xms750m -Xmx750m` in each Elasticsearch node, which prevents the nodes from exiting).
+Make a `docker-compose.yml`file with the contents copied from [`docker-compose.yml`](docker-compose.yml)
+
+> **Note**  
+> This file is at first referenced from the [docker-compose file][docker-compose-file] of [elastic.co], however I have edited it to fix bugs when build the docker
+> compose up. What I have edited is setting up JVM heap size in `environment` tag `- ES_JAVA_OPTS=-Xms750m -Xmx750m` in each Elasticsearch node, which prevents the nodes from exiting.
+
 
 [elastic.co]: https://elastic.co
 [docker-compose-file]: https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-file
