@@ -47,13 +47,13 @@ In a Ubuntu server, create a directory and move into it:
     $ mkdir docker-ELK && cd $_
     
 	
-Make a `docker-compose.yml`file with the contents copied from [`docker-compose.yml`](docker-compose.yml)
+Make a `docker-compose.yml`file with the contents from [`docker-compose.yml`](docker-compose.yml)
 
 > **Note**  
 > This file is at first referenced from the [docker-compose file][docker-compose-file] of [elastic.co], however I have edited it to fix bugs when build the docker
 > compose up. What I have edited is setting up JVM heap size in `environment` tag `- ES_JAVA_OPTS=-Xms750m -Xmx750m` in each Elasticsearch node, which prevents the nodes from exiting.
 
-Also create `.env` file with the contents copied from [`.env`](.env)
+Also create `.env` file with the contents from [`.env`](.env)
 
 > **Note**  
 > This file is at first referenced from the [.env file][.env-file] of [elastic.co], however I have edited it. Beside `password` and `version`, I have also edited 
@@ -67,10 +67,14 @@ Finally, at the docker-ELK directory, run the command:
 	
 	$ docker compose up -d 
 
-Wait for about 3 minutes for the ELK to setup. When all 3 nodes are healthy, access the Kibana web UI by opening http://localhost:5601 in a web browser and use the following (default) credentials to log in:
+Wait for about 3 minutes for the ELK to setup.
+> **Note**  
+> If there are problems, run `$ docker compose logs -f <service>` to observe the exit code and search google for it. If you meet the 137 exit code, I recommend [this][exit-code-137] 
+ 
+When all 3 nodes are healthy, access the Kibana web UI by opening http://localhost:5601 in a web browser and use the following (default) credentials to log in:
 
-	- user: elastic
-	- password: abc123 
+- user: elastic
+- password: abc123 
 
 
 
@@ -94,7 +98,7 @@ Wait for about 3 minutes for the ELK to setup. When all 3 nodes are healthy, acc
 [trial-license]: https://www.elastic.co/guide/en/elasticsearch/reference/current/license-settings.html
 [license-mngmt]: https://www.elastic.co/guide/en/kibana/current/managing-licenses.html
 [license-apis]: https://www.elastic.co/guide/en/elasticsearch/reference/current/licensing-apis.html
-
+[exit-code-137]: https://stackoverflow.com/questions/62006956/elasticsearch-multi-node-cluster-one-node-always-fails-with-docker-compose
 [elastdocker]: https://github.com/sherifabdlnaby/elastdocker
 
 [docker-install]: https://docs.docker.com/get-docker/
