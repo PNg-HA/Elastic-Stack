@@ -141,7 +141,7 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
   
   ![image](https://user-images.githubusercontent.com/93396414/199718947-6c19bf78-c41c-46da-a914-644f3e32c3dd.png)
   
-  8. At step 2, **Snapshot settings**, in **Data streams and indices**, choose only my index: favor_candy 
+  8. At step 2, **Snapshot settings**, in **Data streams and indices**, choose only my index: `favor_candy`
   
   ![image](https://user-images.githubusercontent.com/93396414/199720039-dba0cd14-c73b-409f-bb77-da08e789a58d.png)
 
@@ -159,7 +159,7 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
    
    If nothing to edit, then **Create policy**.
    
-  11. A pop-up shows up, choose **run now**
+  11. A pop-up shows up, choose **run now**.
    
   ![image](https://user-images.githubusercontent.com/93396414/199721156-c801d522-267b-4f82-8c7a-f53d23b0604c.png)
    
@@ -183,19 +183,20 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
 
   ![image](https://user-images.githubusercontent.com/93396414/199722058-9c843f15-8fb1-42b2-974f-94bba79be647.png)
   
-     Then **Restore**.
+   Then **Restore**.
   
   3. Pass 3 steps and select **Restore snapshot**.
   
   ![image](https://user-images.githubusercontent.com/93396414/199723358-56a249db-5a6b-425f-812f-9b0b3fa759a5.png)
  
-     But it refuses to restore because there are one same index named `favor_candy` in my node.
+    But it refuses to restore because there are one same index named `favor_candy` in my node.
      
   ![image](https://user-images.githubusercontent.com/93396414/199723409-a3fa8ef0-c941-4e7a-adaf-a25c0cf23f48.png)
 
   4. go to `Dev Tools` -> **Delete favor_candy**
   
   ![image](https://user-images.githubusercontent.com/93396414/199722927-e8fb6923-2eb2-4558-9569-1cfd4d2550ab.png)
+  
    > **Note**
    > I could delete this index because the kibana_user created it and is permited to delete it. However, there are indices
    > that can not be deleted unless kibanba_user is set to do it. 
