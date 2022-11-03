@@ -80,6 +80,11 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 
 	user: elastic
 	password: abc123 
+	
+  ![image](https://user-images.githubusercontent.com/93396414/199725476-86a1d7e2-3516-4070-90e3-dd0d62a746c9.png)
+
+The successful initial setup should result in: 
+  ![image](https://user-images.githubusercontent.com/93396414/199725719-a077d76e-78d3-4e93-ba9b-2e35ac8da378.png)
 
 ## Backup and restore
 ### Backup
