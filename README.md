@@ -83,8 +83,8 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 	
   ![image](https://user-images.githubusercontent.com/93396414/199725476-86a1d7e2-3516-4070-90e3-dd0d62a746c9.png)
 
-The successful initial setup should result in
-: 
+The successful initial setup should result in:
+
   ![image](https://user-images.githubusercontent.com/93396414/199725719-a077d76e-78d3-4e93-ba9b-2e35ac8da378.png)
 
 ## Backup and restore
@@ -135,33 +135,37 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
   
   ![image](https://user-images.githubusercontent.com/93396414/199718410-c2adf821-ec40-4035-8dad-773cedf0d0a8.png)
   
-  6. Then move to **Policies** -> **Create policy**
-  7. At step 1, **Logistics**, type as your choice and **Next**.
+  6. Then move to **Policies** -> **Create policy**.
+  
+  8. At step 1, **Logistics**, type as your choice and **Next**.
   
   ![image](https://user-images.githubusercontent.com/93396414/199718947-6c19bf78-c41c-46da-a914-644f3e32c3dd.png)
   
   8. At step 2, **Snapshot settings**, in **Data streams and indices**, choose only my index: favor_candy 
-   ![image](https://user-images.githubusercontent.com/93396414/199720039-dba0cd14-c73b-409f-bb77-da08e789a58d.png)
+  
+  ![image](https://user-images.githubusercontent.com/93396414/199720039-dba0cd14-c73b-409f-bb77-da08e789a58d.png)
 
    > **Note** 
    > If the **Include global state** show up, then turn on it.
    Then **Next**. 
-   9. Step 3 is not important in this document. I only set the Maximum count to 4. Then **Next**.
    
-   ![image](https://user-images.githubusercontent.com/93396414/199720548-f2b418f6-6f72-4338-b6b4-39925593b373.png)
+  9. Step 3 is not important in this document. I only set the Maximum count to 4. Then **Next**.
    
-   10. At step 4, **Review**, check again.
+  ![image](https://user-images.githubusercontent.com/93396414/199720548-f2b418f6-6f72-4338-b6b4-39925593b373.png)
    
-   ![image](https://user-images.githubusercontent.com/93396414/199720718-10ef5b4f-f0cd-44a1-9dc5-4748402b2939.png)
+  10. At step 4, **Review**, check again.
+   
+  ![image](https://user-images.githubusercontent.com/93396414/199720718-10ef5b4f-f0cd-44a1-9dc5-4748402b2939.png)
    
    If nothing to edit, then **Create policy**.
-   11. A pop-up shows up, choose **run now**
    
-   ![image](https://user-images.githubusercontent.com/93396414/199721156-c801d522-267b-4f82-8c7a-f53d23b0604c.png)
+  11. A pop-up shows up, choose **run now**
+   
+  ![image](https://user-images.githubusercontent.com/93396414/199721156-c801d522-267b-4f82-8c7a-f53d23b0604c.png)
    
    The successful snapshot will look like this:
    
-   ![image](https://user-images.githubusercontent.com/93396414/199721328-d5850f3c-a27a-4267-a437-ded58865db18.png)
+  ![image](https://user-images.githubusercontent.com/93396414/199721328-d5850f3c-a27a-4267-a437-ded58865db18.png)
    
 ### Restore:
 
