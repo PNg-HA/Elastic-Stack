@@ -149,26 +149,54 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
    ![image](https://user-images.githubusercontent.com/93396414/199720718-10ef5b4f-f0cd-44a1-9dc5-4748402b2939.png)
    
    If nothing to edit, then **Create policy**.
-   11. A pop-up show up, choose **run now**
+   11. A pop-up shows up, choose **run now**
    
    ![image](https://user-images.githubusercontent.com/93396414/199721156-c801d522-267b-4f82-8c7a-f53d23b0604c.png)
    
    The successful snapshot will look like this:
    
    ![image](https://user-images.githubusercontent.com/93396414/199721328-d5850f3c-a27a-4267-a437-ded58865db18.png)
-
-
    
 ### Restore:
 
 > **Note**  
-> Elastic has strict rules about restoring indices. It will not allow to restore system files unless they are deleted. This part will restore the indices that > I have written in `Dev Tools`
+> Elastic has strict rules about restoring indices. It will not allow to restore system files nor the other indices unless they are deleted. This part will restore the indices that
+> I have written in `Dev Tools`
 
+  1. Now select **Snapshot**
+  
+  ![image](https://user-images.githubusercontent.com/93396414/199721855-d94ba8f9-9c4d-467a-893b-6ace4f3e4d75.png)
 
+     In the picture, there are many snapshots. Choose one.
+  
+  2. A pop-up shows up.
 
+  ![image](https://user-images.githubusercontent.com/93396414/199722058-9c843f15-8fb1-42b2-974f-94bba79be647.png)
+  
+     Then **Restore**.
+  
+  3. Pass 3 steps and select **Restore snapshot**.
+  
+  ![image](https://user-images.githubusercontent.com/93396414/199723358-56a249db-5a6b-425f-812f-9b0b3fa759a5.png)
+ 
+     But it refuses to restore because there are one same index named `favor_candy` in my node.
+     
+  ![image](https://user-images.githubusercontent.com/93396414/199723409-a3fa8ef0-c941-4e7a-adaf-a25c0cf23f48.png)
 
+  4. go to `Dev Tools` -> **Delete favor_candy**
+  
+  ![image](https://user-images.githubusercontent.com/93396414/199722927-e8fb6923-2eb2-4558-9569-1cfd4d2550ab.png)
+   > **Note**
+   > I could delete this index because the kibana_user created it and is permited to delete it. However, there are indices
+   > that can not be deleted unless kibanba_user is set to do it. 
+  
+  5. Go back to step 3. 
+  
+     The successful restore should be looked like this:
+     
+  ![image](https://user-images.githubusercontent.com/93396414/199724903-7bd9521f-4c4c-46e4-acc2-b09bfba1123d.png)
 
-
+  
 
 
 
