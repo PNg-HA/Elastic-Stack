@@ -72,12 +72,12 @@ Wait for about 3 minutes for the ELK to setup.
 > **Note**  
 > If there are problems, run `$ docker compose logs -f <service>` to observe the logs and exit code (search google for it). If you meet the **137** exit code, I recommend [this][exit-code-137] .
  
-When all 3 nodes are healthy, access the Kibana web UI by opening http://<IP-address-of-the-host>:5601 in a web browser and use the following (default) credentials to log in:
+When all 3 nodes are healthy, access the Kibana web UI by opening http://IP-address-of-the-host:5601 in a web browser and use the following (default) credentials to log in:
 
 	user: elastic
 	password: abc123 
 
-![This is an image](http://soccertoday.com/wp-content/uploads/2013/12/SDFA_1.jpg )
+
 
 ## Backup and restore
 ### Backup
