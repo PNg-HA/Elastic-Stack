@@ -82,10 +82,15 @@ When all 3 nodes are healthy, access the Kibana web UI by opening http://<IP-add
 ## Backup and restore
 ### Backup
 	
-First, access to **each** container with `root`:
+First, display the list of ELK containers:
+	
+	$docker ps
+	
+then access to **each** container with `root`:
 
 	$docker exec -u 0 -it <esearch container id> /bin/bash
 	$apt-get update
+	
 Install the nano text editor:
 	
 	$apt-get install nano
