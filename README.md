@@ -12,13 +12,21 @@ and other components such as:
 - Beat
 - APM
 
-Elastic Stack is used to take data from any source then search by Elasticsearch, analyze and visualize by Kibana. In this repository, I will only go into detail about Elasticsearch and Kibana.
+Elastic Stack is used to take data from any source then search by Elasticsearch, analyze and visualize by Kibana. 
+Elastic Stack can also be deployed as a Cloud service supported on AWS, Google Cloud, and Azure, or as an on-prem installation.
+![image](https://user-images.githubusercontent.com/93396414/199807946-5c29eede-8516-49fe-ae20-ce019d3f6be6.png)
+
+
+In this repository, I will only go into detail about Elasticsearch and Kibana.
 
 ## Contents
 
 1. [Components](#Components)
 	* [Elasticsearch](#Elasticsearch)
+		* [Nodes and indices](#Nodes-and-indices)
+		* [In case of disater](#In-case-of-disaster)
 	* [Kibana](#Kibana)
+	
 2. [Setup](#set-up)
 	* [Host requirements](#Host-requirements)
 	* [Setup steps](#Setup-steps)
@@ -28,7 +36,30 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 
 ## Components
 ### Elasticsearch
+You should think Elasticsearch as the heart of the Elastic Stack, which has near real-time search and analytics for all types of data. Elasticsearch can store and index structured or unstructured text, numerical data, or geospatial data, in a way that supports fast searches. Elasticsearch provides a REST API that enables you to store data in Elasticsearch, retrieve, and analyze it.
+
+![image](https://user-images.githubusercontent.com/93396414/199810719-4a8915fe-8dd3-4d93-aa13-c93f937d1015.png)
+
+You can also use the Elasticsearch clients to access data in Elasticsearch directly from common programming languages, such as Python. Perl, Go, Java, Ruby, and others.
+
+#### Nodes and indices
+Complex data structures are serialized as JSON documents, distributed across the cluster (in case you deploy a cluster) and accessed from any node.
+
+![image](https://user-images.githubusercontent.com/93396414/199811956-830049c5-d648-4927-8ae3-945adb947625.png)
+
+Elasticsearch uses a data structure called an inverted **index** to store documents. An inverted index lists every unique word that appears in any document and identifies all of the documents each word occurs in. Index can be thought of as an optimized collection of documents and each document is a collection of fields, which are the key-value pairs that contain your data.
+
+![image](https://user-images.githubusercontent.com/93396414/199812745-ad733a59-7631-4d37-8a72-35c89095bab3.png)
+
+#### In case of disater
+To avoid a single point of failure, Elastic supports **Cross-cluster replication**, which automatically synchronizes indices from your primary cluster to a secondary remote cluster that can serve as a hot backup. If the primary cluster fails, the secondary cluster can take over.
+
 ### Kibana
+Kibana is the tool to visualize the Elasticsearch data and to manage the Elastic Stack. Kibana is also the home for the Elastic Enterprise Search, Elastic Observability and Elastic Security solutions. Kibana can:
+  - Create dashboard
+  - Design graph patterns and relationship
+  - predict, & detect behavior
+  - and so on.	
 
 ## Setup
 ### Host requirements
