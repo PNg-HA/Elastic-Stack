@@ -119,7 +119,7 @@ The successful initial setup should result in:
   > **Note**  
   > To know the location of directory `backup_repo`, use command `pwd`
   
-Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI. 
+Do these above steps for **3** elasticsearch node and restart them. Then go to the Kibana web UI. 
 
   1. Go to **Stack Management** -> **Snapshot and Restore** -> **Repositories**
 
