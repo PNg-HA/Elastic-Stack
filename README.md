@@ -22,6 +22,8 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 2. [Setup](#set-up)
 	* [Host requirements](#Host-requirements)
 	* [Setup steps](#Setup-steps)
+	* [Backup](#Backup]
+	* [Restore](#Restore]
 
 ## Components
 ### Elasticsearch
@@ -33,7 +35,7 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 * [Docker Compose][compose-install] version **1.26.0** or newer (including [Compose V2][compose-v2])
 * More than **6 GB** of RAM (because the host consumes lots of memory when runs ELK multi nodes)
 ### Setup steps
-> **Note**  
+> **Summary**  
 > This document will show how to use Docker and Docker Compose to install 3 
 > Elasticsearch nodes in 1 cluser, Kibana to visual and management them, and how to backup 
 > and restore the database. The way to install is the final, after hours of fixing bugs during the installation.
@@ -51,9 +53,30 @@ Make a `docker-compose.yml`file with the contents copied from [`docker-compose.y
 > This file is at first referenced from the [docker-compose file][docker-compose-file] of [elastic.co], however I have edited it to fix bugs when build the docker
 > compose up. What I have edited is setting up JVM heap size in `environment` tag `- ES_JAVA_OPTS=-Xms750m -Xmx750m` in each Elasticsearch node, which prevents the nodes from exiting.
 
+Also create `.env` file with the contents copied from [`.env`](.env)
+
+> **Note**  
+> This file is at first referenced from the [.env file][.env-file] of [elastic.co], however I have edited it. Beside `password` and `version`, I have also edited 
+> `MEM_LIMIT = **6442450944**` bytes, which is more than **6 GB**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [elastic.co]: https://elastic.co
 [docker-compose-file]: https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-file
+[.env-file]: https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-env-file
 [elk-stack]: https://www.elastic.co/what-is/elk-stack
 [xpack]: https://www.elastic.co/what-is/open-x-pack
 [paid-features]: https://www.elastic.co/subscriptions
