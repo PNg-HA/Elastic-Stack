@@ -24,7 +24,7 @@ In this repository, I will only go into detail about Elasticsearch and Kibana.
 1. [Components](#Components)
 	* [Elasticsearch](#Elasticsearch)
 		* [Nodes and indices](#Nodes-and-indices)
-		* [In case of disater](#In-case-of-disaster)
+		* [In case of disaster](#In-case-of-disaster)
 	* [Kibana](#Kibana)
 	
 2. [Setup](#set-up)
@@ -51,7 +51,7 @@ Elasticsearch uses a data structure called an inverted **index** to store docume
 
 ![image](https://user-images.githubusercontent.com/93396414/199812745-ad733a59-7631-4d37-8a72-35c89095bab3.png)
 
-#### In case of disater
+#### In case of disaster
 To avoid a single point of failure, Elastic supports **Cross-cluster replication**, which automatically synchronizes indices from your primary cluster to a secondary remote cluster that can serve as a hot backup. If the primary cluster fails, the secondary cluster can take over.
 
 ### Kibana
