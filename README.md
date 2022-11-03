@@ -40,11 +40,14 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 > The **demo** is at [here](https://www.youtube.com).
 
 In a Ubuntu server, create a directory and move into it:
-	```console
-    $ mkdir docker-ELK && cd $_
-    ```
-Make a 'docker-compose.yml' file with the contents copied from [docker-compose.yml file](#docker-compose-file) 
 
+	
+    $ mkdir docker-ELK && cd $_
+    
+	
+Make a `docker-compose.yml`file with the contents copied from [`docker-compose.yml`](docker-compose.yml) (this file is at first referenced from the [docker-compose file][docker-compose-file] of [elastic.co], however I have edited it to fix bugs when build the docker compose up. What I have edited is setting up JVM heap size `- ES_JAVA_OPTS=-Xms750m -Xmx750m` in each Elasticsearch node, which prevents the nodes from exiting).
+
+[elastic.co]: https://elastic.co
 [docker-compose-file]: https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-file
 [elk-stack]: https://www.elastic.co/what-is/elk-stack
 [xpack]: https://www.elastic.co/what-is/open-x-pack
