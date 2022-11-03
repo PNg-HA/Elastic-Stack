@@ -39,8 +39,13 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 > and restore the database. The way to install is the final, after hours of fixing bugs during the installation.
 > The **demo** is at [here](https://www.youtube.com).
 
-sdfa [`.env`](.env) fdsaf
+In a Ubuntu server, create a directory and move into it:
+	```console
+    $ mkdir docker-ELK && cd $_
+    ```
+Make a 'docker-compose.yml' file with the contents copied from [docker-compose.yml file](#docker-compose-file) 
 
+[docker-compose-file]: https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-file
 [elk-stack]: https://www.elastic.co/what-is/elk-stack
 [xpack]: https://www.elastic.co/what-is/open-x-pack
 [paid-features]: https://www.elastic.co/subscriptions
