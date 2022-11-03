@@ -42,74 +42,141 @@ Elastic Stack is used to take data from any source then search by Elasticsearch,
 > and restore the database. The way to install is the final, after hours of fixing bugs during the installation.
 > The **demo** is at [here](https://www.youtube.com).
 
-In a Ubuntu server, create a directory and move into it:
+  1. In a Ubuntu server, create a directory and move into it:
 
 	
     $ mkdir docker-ELK && cd $_
     
 	
-Make a `docker-compose.yml`file with the contents from [`docker-compose.yml`](docker-compose.yml)
+  2. Make a `docker-compose.yml`file with the contents from [`docker-compose.yml`](docker-compose.yml)
 
-> **Note**  
-> This file is at first referenced from the [docker-compose file][docker-compose-file] of [elastic.co], however I have edited it to fix bugs when build the docker
-> compose up. What I have edited is setting up JVM heap size in `environment` tag `- ES_JAVA_OPTS=-Xms750m -Xmx750m` in each Elasticsearch node, which prevents the nodes from exiting.
+   > **Note**  
+   > This file is at first referenced from the [docker-compose file][docker-compose-file] of [elastic.co], however I have edited it to fix bugs when build the 
+   > docker
+   > compose up. What I have edited is setting up JVM heap size in `environment` tag `- ES_JAVA_OPTS=-Xms750m -Xmx750m` in each Elasticsearch node, which
+   > prevents the nodes from exiting.
 
-Also create `.env` file with the contents from [`.env`](.env)
+  3. Create `.env` file with the contents from [`.env`](.env)
 
-> **Note**  
-> This file is at first referenced from the [.env file][.env-file] of [elastic.co], however I have edited it. Beside `password` and `version`, I have also edited 
-> `MEM_LIMIT` = **6442450944** bytes, which is more than **6 GB**.
+   > **Note**  
+   > This file is at first referenced from the [.env file][.env-file] of [elastic.co], however I have edited it. Beside `password` and `version`, I have also 
+   > edited 
+   > `MEM_LIMIT` = **6442450944** bytes, which is more than **6 GB**.
 
-And increase the limit of `mmap` (virtual memory of the host):
+  4. Increase the limit of `mmap` (virtual memory of the host):
 
 	$ sudo sysctl -w vm.max_map_count=524288
 	
-Finally, at the docker-ELK directory, run the command:
+  5. At the docker-ELK directory, run the command:
 	
 	$ docker compose up -d 
 
-Wait for about 3 minutes for the ELK to setup.
-> **Note**  
-> If there are problems, run `$ docker compose logs -f <service>` to observe the logs and exit code (search google for it). If you meet the **137** exit code, I recommend [this][exit-code-137] .
+   Wait for about 3 minutes for the ELK to setup.
+   > **Note**  
+   > If there are problems, run `$ docker compose logs -f <service>` to observe the logs and exit code (search google for it). If you meet the **137** exit 
+   > code, I recommend [this][exit-code-137] .
  
-When all 3 nodes are healthy, access the Kibana web UI by opening http://IP-address-of-the-host:5601 in a web browser and use the following (default) credentials to log in:
+  6. When all 3 nodes are healthy, access the Kibana web UI by opening http://IP-address-of-the-host:5601 in a web browser and use the following (default) credentials to log in:
 
 	user: elastic
 	password: abc123 
 
-
-
 ## Backup and restore
 ### Backup
 	
-First, display the list of ELK containers:
+  1. Display the list of ELK containers:
 	
 	$docker ps
 	
-then access to **each** container with `root`:
+  2. Access to **each** container with `root`:
 
 	$docker exec -u 0 -it <esearch container id> /bin/bash
 	$apt-get update
 	
-Install the nano text editor:
+  3. Install the `nano` text editor:
 	
 	$apt-get install nano
 	
-Ctrl – D to quit the container and get access to it again with user elasticsearch:
+  4. `Ctrl–D` to quit the container and get access to it again with user elasticsearch:
 
 	docker exec -it <esearch container id> /bin/bash
 
-Create a backup directory:
+  5. Create a backup directory:
 	
 	mkdir backup_repo
 
-Config the `elasticsearch.yml` file to create a path to the backup directory:
+  6. Config the `elasticsearch.yml` file to create a path to the backup directory:
 
 	nano config/elasticsearch.yml
 
-Add `path.repo: /usr/share/elasticsearch/backup_repo` to the file 
+  7. Add `path.repo: /usr/share/elasticsearch/backup_repo` to the file. Save the file with `Ctrl-S` and exit with `Ctrl-X`.
+  > **Note**  
+  > To know the location of directory `backup_repo`, use command `pwd`
+  
+Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI. 
 
+  1. Go to **Stack Management** -> **Snapshot and Restore** -> **Repositories**
+
+  ![image](https://user-images.githubusercontent.com/93396414/199712256-0c617f51-7ee9-4c2f-a9e7-a7355b53738b.png)
+
+  2. Select **Register repository**. 
+  3. Name **Repository name** as `demo`.
+  4. At **Repository type**, select **Shared file system** and Next.
+  
+  ![image](https://user-images.githubusercontent.com/93396414/199716916-612ef447-49b9-434a-8f51-695472d90408.png)
+  
+  5. At the `File system locatio`, type: `/usr/share/elasticsearch/backup_repo`. Ignore other fields and **Save**.
+  
+  ![image](https://user-images.githubusercontent.com/93396414/199718410-c2adf821-ec40-4035-8dad-773cedf0d0a8.png)
+  
+  6. Then move to **Policies** -> **Create policy**
+  7. At step 1, **Logistics**, type as your choice and **Next**.
+  
+  ![image](https://user-images.githubusercontent.com/93396414/199718947-6c19bf78-c41c-46da-a914-644f3e32c3dd.png)
+  
+  8. At step 2, **Snapshot settings**, in **Data streams and indices**, choose only my index: favor_candy 
+   ![image](https://user-images.githubusercontent.com/93396414/199720039-dba0cd14-c73b-409f-bb77-da08e789a58d.png)
+
+   > **Note** 
+   > If the **Include global state** show up, then turn on it.
+   Then **Next**. 
+   9. Step 3 is not important in this document. I only set the Maximum count to 4. Then **Next**.
+   
+   ![image](https://user-images.githubusercontent.com/93396414/199720548-f2b418f6-6f72-4338-b6b4-39925593b373.png)
+   
+   10. At step 4, **Review**, check again.
+   
+   ![image](https://user-images.githubusercontent.com/93396414/199720718-10ef5b4f-f0cd-44a1-9dc5-4748402b2939.png)
+   
+   If nothing to edit, then **Create policy**.
+   11. A pop-up show up, choose **run now**
+   
+   ![image](https://user-images.githubusercontent.com/93396414/199721156-c801d522-267b-4f82-8c7a-f53d23b0604c.png)
+   
+   The successful snapshot will look like this:
+   
+   ![image](https://user-images.githubusercontent.com/93396414/199721328-d5850f3c-a27a-4267-a437-ded58865db18.png)
+
+
+   
 ### Restore:
+
+> **Note**  
+> Elastic has strict rules about restoring indices. It will not allow to restore system files unless they are deleted. This part will restore the indices that > I have written in `Dev Tools`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
