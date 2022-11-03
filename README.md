@@ -57,10 +57,20 @@ Also create `.env` file with the contents copied from [`.env`](.env)
 
 > **Note**  
 > This file is at first referenced from the [.env file][.env-file] of [elastic.co], however I have edited it. Beside `password` and `version`, I have also edited 
-> `MEM_LIMIT = **6442450944**` bytes, which is more than **6 GB**.
+> `MEM_LIMIT` = **6442450944** bytes, which is more than **6 GB**.
 
+And increase the limit of `mmap` (virtual memory of the host):
 
+	$ sudo sysctl -w vm.max_map_count=524288
+	
+Finally, at the docker-ELK directory, run the command:
+	
+	$ docker compose up -d 
 
+Wait for about 3 minutes for the ELK to setup. When all 3 nodes are healthy, access the Kibana web UI by opening http://localhost:5601 in a web browser and use the following (default) credentials to log in:
+
+	- user: elastic
+	- password: abc123 
 
 
 
