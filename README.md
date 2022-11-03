@@ -81,7 +81,8 @@ When all 3 nodes are healthy, access the Kibana web UI by opening http://<IP-add
 
 ## Backup and restore
 ### Backup
-First: access the container with root:
+	
+First, access to **each** container with root:
 
 	$docker exec -u 0 -it <esearch container id> /bin/bash
 	$apt-get update
@@ -100,7 +101,8 @@ Create a backup directory:
 Config the `elasticsearch.yml` file to create a path to the backup directory:
 
 	nano config/elasticsearch.yml
-	path.repo: /usr/share/elasticsearch/backup_repo
+
+Add `path.repo: /usr/share/elasticsearch/backup_repo` to the file 
 
 ### Restore:
 
