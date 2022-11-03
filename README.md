@@ -131,7 +131,7 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
   
   ![image](https://user-images.githubusercontent.com/93396414/199716916-612ef447-49b9-434a-8f51-695472d90408.png)
   
-  5. At the `File system locatio`, type: `/usr/share/elasticsearch/backup_repo`. Ignore other fields and **Save**.
+  5. At the `File system location`, type: `/usr/share/elasticsearch/backup_repo`. Ignore other fields and **Save**.
   
   ![image](https://user-images.githubusercontent.com/93396414/199718410-c2adf821-ec40-4035-8dad-773cedf0d0a8.png)
   
@@ -149,7 +149,7 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
    > If the **Include global state** show up, then turn on it.
    Then **Next**. 
    
-  9. Step 3 is not important in this document. I only set the Maximum count to 4. Then **Next**.
+  9. Step 3 is not important in this document. I only set the `Maximum count` to 4. Then **Next**.
    
   ![image](https://user-images.githubusercontent.com/93396414/199720548-f2b418f6-6f72-4338-b6b4-39925593b373.png)
    
@@ -177,7 +177,7 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
   
   ![image](https://user-images.githubusercontent.com/93396414/199721855-d94ba8f9-9c4d-467a-893b-6ace4f3e4d75.png)
 
-     In the picture, there are many snapshots. Choose one.
+    In the picture, there are many snapshots. Choose one.
   
   2. A pop-up shows up.
 
@@ -189,11 +189,11 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
   
   ![image](https://user-images.githubusercontent.com/93396414/199723358-56a249db-5a6b-425f-812f-9b0b3fa759a5.png)
  
-    But it refuses to restore because there are one same index named `favor_candy` in my node.
+   But it refuses to restore because there are one same index named `favor_candy` in my node.
      
   ![image](https://user-images.githubusercontent.com/93396414/199723409-a3fa8ef0-c941-4e7a-adaf-a25c0cf23f48.png)
 
-  4. go to `Dev Tools` -> **Delete favor_candy**
+  4. Go to `Dev Tools` -> type and run **Delete favor_candy**.
   
   ![image](https://user-images.githubusercontent.com/93396414/199722927-e8fb6923-2eb2-4558-9569-1cfd4d2550ab.png)
   
@@ -201,7 +201,7 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
    > I could delete this index because the kibana_user created it and is permited to delete it. However, there are indices
    > that can not be deleted unless kibanba_user is set to do it. 
   
-  5. Go back to step 3. 
+  5. Do again step 2 and 3. 
   
      The successful restore should be looked like this:
      
