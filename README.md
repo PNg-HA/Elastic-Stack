@@ -183,7 +183,7 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
 
   ![image](https://user-images.githubusercontent.com/93396414/199722058-9c843f15-8fb1-42b2-974f-94bba79be647.png)
   
-   Then **Restore**.
+     Then **Restore**.
   
   3. Pass 3 steps and select **Restore snapshot**.
   
