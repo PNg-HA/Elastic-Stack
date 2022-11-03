@@ -27,7 +27,7 @@ In this repository, I will only go into detail about Elasticsearch and Kibana.
 		* [In case of disaster](#In-case-of-disaster)
 	* [Kibana](#Kibana)
 	
-2. [Setup](#set-up)
+2. [Setup](#Setup)
 	* [Host requirements](#Host-requirements)
 	* [Setup steps](#Setup-steps)
 3. [Backup and restore](#Backup-and-restore)
