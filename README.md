@@ -103,7 +103,7 @@ The successful initial setup should result in:
 	
 	$apt-get install nano
 	
-  4. `Ctrl–D` to quit the container and get access to it again with user elasticsearch:
+  4. `Ctrl–D` to quit the container and get access to it again with user `elasticsearch`:
 
 	docker exec -it <esearch container id> /bin/bash
 
@@ -127,7 +127,7 @@ Do these above steps for **3** elasticsearch node. Then go to the Kibana web UI.
 
   2. Select **Register repository**. 
   3. Name **Repository name** as `demo`.
-  4. At **Repository type**, select **Shared file system** and Next.
+  4. At **Repository type**, select **Shared file system** and **Next**.
   
   ![image](https://user-images.githubusercontent.com/93396414/199716916-612ef447-49b9-434a-8f51-695472d90408.png)
   
