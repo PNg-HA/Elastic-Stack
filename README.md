@@ -63,9 +63,9 @@ Kibana is the tool to visualize the Elasticsearch data and to manage the Elastic
 
 ## Setup
 ### Host requirements
-* [Docker Engine][docker-install] version **18.06.0** or newer
-* [Docker Compose][compose-install] version **1.26.0** or newer (including [Compose V2][compose-v2])
-* More than **6 GB** of RAM (because the host consumes lots of memory when runs ELK multi nodes)
+* [Docker Engine][docker-install] version **18.06.0** or newer (8/12/2023 test on v19.03.9)
+* [Docker Compose][compose-install] version **1.26.0** or newer (including [Compose V2][compose-v2]) (8/12/2023 test on v2.21.0)
+* More than **6 GB** of RAM (because the host consumes lots of memory when runs ELK multi nodes) (8/12/2023 docker v23 results in error "kernel does not support swap limit capabilities or the cgroup is not mounted. memory limited without swap")
 ### Setup steps
 > **Summary**  
 > This document will show how to use Docker and Docker Compose to install 3 
